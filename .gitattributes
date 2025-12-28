@@ -1,0 +1,6 @@
+# Force LF in repo
+* text=auto eol=lf
+
+# (optional) keep Windows scripts as CRLF if you have any
+*.bat text eol=crlf
+*.cmd text eol=crlf

@@ -1,0 +1,39 @@
+import { headers } from 'next/headers';
+import Link from 'next/link';
+import { getAppConfig } from '@/lib/utils';
+
+interface LayoutProps {
+  children: React.ReactNode;
+}
+
+export default async function Layout({ children }: LayoutProps) {
+  const hdrs = await headers();
+  const { companyName, pageTitle, logo, logoDark } = await getAppConfig(hdrs);
+
+  return (
+    <>
+      <header className="fixed top-0 left-0 z-50 hidden w-full flex-row justify-between p-6 md:flex">
+        <div className="flex items-center gap-3">
+          <Link href="/" className="scale-100 transition-transform duration-300 hover:scale-110">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={logo} alt={`${companyName} Logo`} className="block size-9 dark:hidden" />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={logoDark ?? logo}
+              alt={`${companyName} Logo`}
+              className="hidden size-9 dark:block"
+            />
+          </Link>
+          <span className="text-foreground text-sm font-semibold tracking-wide uppercase">
+            {companyName}
+          </span>
+        </div>
+        <span className="text-foreground font-mono text-xs font-bold tracking-wider uppercase">
+          {pageTitle}
+        </span>
+      </header>
+
+      {children}
+    </>
+  );
+}
