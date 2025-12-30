@@ -17,6 +17,7 @@ export interface AppConfig {
   // optional sandbox integration
   sandboxId?: string;
   agentName?: string;
+  agentWork?: string;
 }
 
 export const APP_CONFIG_DEFAULTS: AppConfig = {
@@ -38,4 +39,5 @@ export const APP_CONFIG_DEFAULTS: AppConfig = {
   // optional sandbox integration
   sandboxId: undefined,
   agentName: undefined,
+  agentWork: undefined,
 };

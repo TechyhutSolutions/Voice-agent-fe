@@ -1,5 +1,7 @@
 # Agent Starter for React
 
+Voice-first Next.js template that pairs with LiveKit Agents to provide live audio calls, optional video/screen share, transcription, and avatar support, with branding and UX fully tweakable through app-config settings.
+
 This is a starter template for [LiveKit Agents](https://docs.livekit.io/agents) that provides a simple voice interface using the [LiveKit JavaScript SDK](https://github.com/livekit/client-sdk-js). It supports [voice](https://docs.livekit.io/agents/start/voice-ai), [transcriptions](https://docs.livekit.io/agents/build/text/), and [virtual avatars](https://docs.livekit.io/agents/integrations/avatar).
 
 Also available for:
@@ -120,3 +122,9 @@ These are required for the voice agent functionality to work with your LiveKit p
 ## Contributing
 
 This template is open source and we welcome contributions! Please open a PR or issue through GitHub, and don't forget to join us in the [LiveKit Community Slack](https://livekit.io/join-slack)!
+
+
+
+docker build -t voiceagent .
+docker tag voiceagent:latest us-central1-docker.pkg.dev/neon-vigil-450104-t3/voice-agent-fe/voiceagent:latest
+docker push us-central1-docker.pkg.dev/neon-vigil-450104-t3/voice-agent-fe/voiceagent:latest
